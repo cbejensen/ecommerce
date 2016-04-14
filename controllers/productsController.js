@@ -22,6 +22,7 @@ module.exports = {
     });
   },
   save: function(req, res, next) {
+    req.body.age = parseInt(req.body.age, 10);
     db.products.save(req.body, function(err, response) {
       if (err) {
         res.status(500).send(err);
@@ -35,7 +36,9 @@ module.exports = {
         return res.status(400).send('id query needed');
     }
     var idObj = { _id : mongo.ObjectId(req.params.id) };
-    db.products.update(idObj, { $set : req.body }, function(err, response) {
+    delete req.body._id;
+    req.body.age = parseInt(req.body.age, 10);
+    db.products.update(idObj, req.body, function(err, response) {
       if (err) {
         res.status(500).send(err);
       } else {

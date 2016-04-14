@@ -1,0 +1,31 @@
+<h3>Create product</h3>
+
+<form ng-submit="createProduct()">
+  Name: <input class="form-control" ng-model="newProduct.name"><br />
+  Age: <input class="form-control" ng-model="newProduct.age">
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<h3>Manage products</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr ng-repeat="product in products">
+    <td>{{product.name}}</td>
+    <td>{{product.age}}</td>
+    <td ng-click="editProduct(product)"><a>Edit</a></td>
+    <td ng-click="deleteProduct(product._id)"><a>Delete</a></td>
+  </tr>
+</table>
+
+
+<form ng-submit="updateProduct()" ng-show="showUpdateForm">
+  Name: <input ng-model="editedProduct.name"><br />
+  Age: <input ng-model="editedProduct.age">
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

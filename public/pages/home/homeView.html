@@ -1,0 +1,25 @@
+<button class="btn btn-primary" ng-click="getProducts()">
+  View All Products
+</button>
+
+<div>
+<input class="" ng-model="productId" placeholder="Enter ID">
+<button class="btn btn-danger" ng-click="findProduct()">
+  Go!
+</button>
+</div>
+
+<h3>Results</h3>
+<div ng-show="viewResults">
+  <div>{{resultsSummary}}</div>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr ng-repeat="product in products">
+      <td>{{product.name}}</td>
+      <td>{{product.age}}</td>
+    </tr>
+  </table>
+</div>
