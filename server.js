@@ -6,25 +6,27 @@ var mongoose = require('mongoose');
 var app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cors());
 
-var productsController = require('./controllers/productsController')
+var productsController = require('./controllers/productsController');
 
-app.get('/api/products', productsController.find);
-app.get('/api/products/:id', productsController.findOne);
-app.post('/api/products', productsController.save);
+app.post('/api/products', productsController.create);
+app.get('/api/products', productsController.read);
+app.get('/api/products/:id', productsController.findById);
 app.put('/api/products/:id', productsController.update);
-app.delete('/api/products/:id', productsController.remove);
+app.delete('/api/products/:id', productsController.delete);
 
-mongoose.connect('mongodb://localhost/products');
+mongoose.connect('mongodb://localhost/ecommerce'); //name of library
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('Connected to Mongoose')
+db.once('open', function () {
+  console.log('Connected to Mongoose');
 });
 
 var port = 8000;
-app.listen(port, function() {
+app.listen(port, function () {
   console.log('Listening on port', port)
 })

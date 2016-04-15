@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="ecommerce">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
     <header>
-      <h1>eCommerce</h1>
-      The site where products are happy
+      <h1>eCommerce</h1> The site where products are happy
     </header>
 
     <nav class="row">
@@ -18,10 +19,11 @@
     </nav>
 
     <hr>
-    
+
     <div ui-view></div>
-  
+
   </div>
+
   <!-- DEPENDENCIES -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
@@ -30,4 +32,5 @@
   <script src="pages/home/HomeController.js"></script>
   <script src="eService.js"></script>
 </body>
+
 </html>
